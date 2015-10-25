@@ -57,4 +57,8 @@ Example call:
   php yii sitemap/write
 ```
 
-This call will write 'web/sitemap_0.xml' and 'web/sitemap.xml'.
+This call will write 'web/sitemap_0.xml' and 'web/sitemap.xml'. Inspired by
+(yii2-sitemap-module)[https://github.com/himiklab/yii2-sitemap-module] by
+@himiklab. Package contains tests so don't forget to `phpunit tests` before
+pushing or creating pull request. All new functionality should be tested before
+pushing.
