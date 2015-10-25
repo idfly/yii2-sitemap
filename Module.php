@@ -2,7 +2,7 @@
 
 namespace idfly\sitemap;
 
-class Module {
+class Module extends \yii\base\Module implements \yii\base\BootstrapInterface {
 
     public $items = [];
 
@@ -20,6 +20,18 @@ class Module {
         $sitemap->splitCount = $this->splitCount;
         $sitemap->splitSize = $this->splitSize;
         $sitemap->write();
+    }
+
+    public $controllerNamespace = 'idfly\sitemap\commands';
+
+    public function bootstrap($app)
+    {
+        if ($app instanceof \yii\console\Application) {
+            $app->controllerMap[$this->id] = [
+                'class' => 'idfly\sitemap\commands\SitemapController',
+                'module' => $this,
+            ];
+        }
     }
 
 }

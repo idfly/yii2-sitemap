@@ -4,7 +4,7 @@ namespace idfly\sitemap\commands;
 
 class SitemapController extends \yii\console\Controller
 {
-    public function actionWrite($task, $args)
+    public function actionWrite()
     {
         $this->module->write();
     }

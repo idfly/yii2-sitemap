@@ -17,8 +17,14 @@ Installing
 Add following section to composer.json:
 
 ```
-  // to require section
+  // to "require" section:
   "idfly/yii2-sitemap": "dev-master"
+
+  // to "repositories" section:
+  {
+      "type": "git",
+      "url": "git@github.com:idfly/yii2-sitemap.git"
+  },
 ```
 
 Example configuration:
@@ -30,9 +36,10 @@ $config['modules']['sitemap'] = [
     'items' => [
         [
             'list' => function() {
-                $query = \app\models\Category::find();
-                $query = \app\models\Category::addParentCategory($query);
-                $query = $query->andWhere(['active' => 1]);
+                $query =
+                    \app\models\Category::find()->
+                    andWhere(['active' => 1])->
+                    all();
                 return $query;
             },
 
