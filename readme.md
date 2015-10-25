@@ -11,6 +11,16 @@ Main features:
 
   * Cares about filesize (by default split files by 10 000 record and 10MB; values could be tuned)
 
+Installing
+==========
+
+Add following section to composer.json:
+
+```
+  // to require section
+  "idfly/yii2-sitemap": "dev-master"
+```
+
 Example configuration:
 
 ```
@@ -57,8 +67,37 @@ Example call:
   php yii sitemap/write
 ```
 
+
+Commiting
+=========
+
 This call will write 'web/sitemap_0.xml' and 'web/sitemap.xml'. Inspired by
 (yii2-sitemap-module)[https://github.com/himiklab/yii2-sitemap-module] by
 @himiklab. Package contains tests so don't forget to `phpunit tests` before
 pushing or creating pull request. All new functionality should be tested before
 pushing.
+
+
+Usage without Yii2
+==================
+
+It is possible to use this functionality without yii2:
+
+```
+  $sitemap = new Sitemap('/path/to/public', '/url/to/site');
+
+  $sitemap->items = [
+      [
+          'list' => function() {
+              return $myorm->select();
+          },
+          'prepare' => function($object) {
+              return [
+                  'loc' => 'http://mydomain.com/' . $object->url,
+              ];
+          }
+      ]
+  ];
+
+  $sitemap->write();
+```
