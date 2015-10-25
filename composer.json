@@ -1,0 +1,25 @@
+{
+    "name": "idfly/sitemap",
+    "description": "Sitemap generator",
+    "keywords": ["sitemap"],
+    "type": "library",
+    "homepage": "https://github.com/idfly/sitemap",
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "IdFly",
+            "homepage": "https://idfly.ru"
+        }
+    ],
+    "require": {
+        "php": ">=5.6.0"
+    },
+    "require-dev": {
+        "phpunit/phpunit": ">=4.0"
+    },
+    "autoload": {
+        "psr-4": {
+            "idfly\\sitemap\\": ""
+        }
+    }
+}
