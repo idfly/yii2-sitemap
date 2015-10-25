@@ -1,5 +1,5 @@
 {
-    "name": "idfly/sitemap",
+    "name": "idfly/yii2-sitemap",
     "description": "Sitemap generator",
     "keywords": ["sitemap"],
     "type": "library",
